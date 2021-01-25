@@ -21,4 +21,5 @@ urlpatterns = [
 
     # Applications
     path('', include('home.urls')),
+    path('blog', include('blog.urls')),
 ]
