@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+<!-- Title Start -->
+{% block title %}
+
+{{ post.title_tag }}
+
+{% endblock title %}
+<!-- Title End -->
+
 {% block content %}
 
 <h2>{{ post.title }}</h2>
@@ -9,6 +17,6 @@
 
 <br><br>
 
-<a href="{% url 'blog:MainBlog' %}">Back</a>
+<a href="{% url 'blog:main_blog' %}" class="btn btn-secondary">Back</a>
 
 {% endblock content %}
