@@ -11,7 +11,7 @@
 {% block content %}
 
 <h2>{{ post.title }}</h2>
-<small>{{ post.author.first_name }} {{ post.author.last_name }}</small>
+<small>{{ post.author.first_name }} {{ post.author.last_name }} - <a href="{% url 'blog:update_post' post.pk %}">Edit</a></small>
 <hr>
 {{ post.body }}
 
