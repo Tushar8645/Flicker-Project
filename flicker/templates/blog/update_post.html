@@ -8,6 +8,8 @@ Edit Blog Post
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <h1>Update Post...</h1>
 <br>
 
@@ -19,5 +21,11 @@ Edit Blog Post
         <button class="btn btn-secondary">Update</button>
     </form>
 </div>
+
+{% else %}
+
+You're not allowed here! (and you know it...)
+
+{% endif %}
 
 {% endblock content %}

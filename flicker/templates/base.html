@@ -28,9 +28,8 @@
 
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home:home_view' %}">Home</a>
-                    </li>
+
+                    {% if user.is_authenticated %}
 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'blog:main_blog' %}">Blog</a>
@@ -41,8 +40,29 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="ss" href="#">Login/SignUp</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
+
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:home_view' %}">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog:main_blog' %}">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="ss" href="{% url 'login' %}">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="ss" href="{% url 'members:register' %}">Register</a>
+                    </li>
+
+                    {% endif %}
+                    
                 </ul>
             </div>
         </div>

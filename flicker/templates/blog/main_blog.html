@@ -9,9 +9,20 @@
 
     <li>
         <a href="{% url 'blog:article_detail' post.pk %}">{{ post.title }}</a> - {{ post.author.first_name }}
-        {{post.author.last_name }} - <a href="{% url 'blog:update_post' post.pk %}">Edit</a> <a href="{% url 'blog:delete_post' post.pk %}">Delete</a>
+        {{post.author.last_name }} - {{ post.post_date }}
+
+        {% if user.is_authenticated %}
+
+        <small>
+            - <a href="{% url 'blog:update_post' post.pk %}">(Edit)</a>
+            <a href="{% url 'blog:delete_post' post.pk %}">(Delete)</a>
+        </small>
+
+        {% endif %}
+
         <br>
-        {{ post.body }}
+
+        {{ post.body|truncatechars:200 }}
     </li>
 
     <br>

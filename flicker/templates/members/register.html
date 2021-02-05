@@ -2,15 +2,13 @@
 
 {% block title %}
 
-Add Post
+Register
 
 {% endblock title %}
 
 {% block content %}
 
-{% if user.is_authenticated %}
-
-<h1>Add Post...</h1>
+<h1>Register...</h1>
 
 <br>
 
@@ -19,14 +17,8 @@ Add Post
         {% csrf_token %}
 
         {{ form.as_p }}
-        <button class="btn btn-secondary">Post</button>
+        <button class="btn btn-secondary">Register</button>
     </form>
 </div>
-
-{% else %}
-
-You're not allowed here! (and you know it...)
-
-{% endif %}
 
 {% endblock content %}

@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     # Applications
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
+
+    # Authentications
+    'members.apps.MembersConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+LOGIN_REDIRECT_URL = 'home:home_view'
+LOGOUT_REDIRECT_URL = 'home:home_view'
