@@ -2,15 +2,16 @@
 
 {% block content %}
 
-<h1>Post</h1>
+{% if category_post %}
+
+<h1>{{ cats }}</h1>
 
 <ul>
-    {% for post in object_list %}
+    {% for post in category_post %}
 
     <li>
         <a href="{% url 'blog:article_detail' post.pk %}">{{ post.title }}</a> - {{ post.author.first_name }}
-        {{post.author.last_name }} - <a href="{% url 'blog:category' post.category %}">{{ post.category | title }}</a>
-        - {{ post.post_date }}
+        {{ post.author.last_name }} - {{ post.post_date }}
 
         {% if user.is_authenticated %}
 
@@ -30,5 +31,11 @@
 
     {% endfor %}
 </ul>
+
+{% else %}
+
+<h2>Sorry this page does not exist...</h2>
+
+{% endif %}
 
 {% endblock content %}

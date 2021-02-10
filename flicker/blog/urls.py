@@ -12,4 +12,5 @@ urlpatterns = [
          views.UpdatePostView.as_view(), name='update_post'),
     path('article/remove/<int:pk>/',
          views.DeletePostView.as_view(), name='delete_post'),
+    path('category/<str:cats>/', views.CategoryView, name='category'),
 ]

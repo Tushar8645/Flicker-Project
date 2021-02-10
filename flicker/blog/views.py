@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import render
 from django.views import generic
 from .models import Post, Category
 from .forms import PostForm, EditForm, CategoryForm
@@ -9,6 +10,11 @@ class BlogView(generic.ListView):
     model = Post
     template_name = 'blog/main_blog.html'
     ordering = ['-id']
+
+
+def CategoryView(request, cats):
+    category_post = Post.objects.filter(category=cats)
+    return render(request, 'blog/categories.html', {'cats': cats.title(), 'category_post': category_post})
 
 
 class ArticleDetailView(generic.DetailView):
