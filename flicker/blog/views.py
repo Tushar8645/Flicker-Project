@@ -13,8 +13,8 @@ class BlogView(generic.ListView):
 
 
 def CategoryView(request, cats):
-    category_post = Post.objects.filter(category=cats)
-    return render(request, 'blog/categories.html', {'cats': cats.title(), 'category_post': category_post})
+    category_post = Post.objects.filter(category=cats.replace('-', ' '))
+    return render(request, 'blog/categories.html', {'cats': cats.title().replace('-', ' '), 'category_post': category_post})
 
 
 class ArticleDetailView(generic.DetailView):

@@ -14,6 +14,10 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('blog:main_blog')
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
 
 class Post(models.Model):
     title = models.CharField(max_length=300)
@@ -29,3 +33,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         # return reverse('blog:article_detail', args=[str(self.id)])
         return reverse('blog:main_blog')
+
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
