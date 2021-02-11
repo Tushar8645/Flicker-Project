@@ -8,15 +8,15 @@ from django.urls import reverse
 class Category(models.Model):
     name = models.CharField(max_length=250)
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse('blog:main_blog')
-
-    class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
 
 
 class Post(models.Model):
@@ -27,13 +27,13 @@ class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     category = models.CharField(max_length=300, default="")
 
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
+
     def __str__(self):
         return self.title + ' | ' + str(self.author)
 
     def get_absolute_url(self):
         # return reverse('blog:article_detail', args=[str(self.id)])
         return reverse('blog:main_blog')
-
-    class Meta:
-        verbose_name = 'Post'
-        verbose_name_plural = 'Posts'
